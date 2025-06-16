@@ -1,0 +1,37 @@
+{
+  "name": "bankguard-ai",
+  "version": "1.0.0",
+  "description": "Mobile Banking Fraud Detection System with Behavioral Biometrics",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run dashboard:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "dashboard:dev": "cd dashboard && npm run dev",
+    "build": "npm run dashboard:build && npm run server:build",
+    "dashboard:build": "cd dashboard && npm run build",
+    "server:build": "cd server && npm run build",
+    "ml:train": "cd ml-pipeline && python train_models.py",
+    "android:build": "cd android && ./gradlew assembleDebug",
+    "test": "npm run test:server && npm run test:dashboard",
+    "test:server": "cd server && npm test",
+    "test:dashboard": "cd dashboard && npm test"
+  },
+  "keywords": [
+    "fraud-detection",
+    "behavioral-biometrics",
+    "mobile-banking",
+    "tensorflow-lite",
+    "privacy-preserving",
+    "accessibility"
+  ],
+  "author": "BankGuard AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "server",
+    "dashboard",
+    "ml-pipeline"
+  ]
+}
